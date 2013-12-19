@@ -1,0 +1,34 @@
+#!/bin/sh
+
+start () {
+  echo "dataloop agent started"
+  /usr/local/bin/dataloop-lin-agent \
+      --api-key <%= @api_key %> \
+      --tags    <%= @tags %> \
+      > /dev/null 2>&1 &
+}
+
+stop () {
+  echo "dataloop agent stopped"
+  pkill -9 -f 'dataloop-lin-agent'
+}
+
+case "$1" in
+start)
+        start
+        ;;
+stop)
+        stop
+        ;;
+restart)
+        stop
+        sleep 1
+        start
+        ;;
+*)
+        echo "Usage: $0 { start | stop | restart }"
+        exit 1
+        ;;
+esac
+
+exit 0

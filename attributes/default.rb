@@ -1,0 +1,6 @@
+default['dataloop']['agent']['location'] = "/usr/local/bin/dataloop-lin-agent"
+default['dataloop']['agent']['uri'] = "http://git.dataloop.io/download/v0.001/dataloop-lin-agent"
+default['dataloop']['agent']['checksum'] = ""
+default['dataloop']['agent']['init'] = "/etc/init.d/dataloop-agent"
+default['dataloop']['agent']['apikey'] = ""
+default['dataloop']['node']['tags'] = "all"
