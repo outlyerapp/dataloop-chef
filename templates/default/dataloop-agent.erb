@@ -9,8 +9,19 @@ start () {
 }
 
 stop () {
-  echo "dataloop agent stopped"
+  echo -n "dataloop agent: attempting deregister... "
+
+  /usr/local/bin/dataloop-lin-agent --api-key <%= @api_key %> \
+                                    --deregister
+
+  if [ $? -ne 0 ]; then
+    echo "failed! "
+  else 
+    echo "success"
+  fi
+
   pkill -9 -f 'dataloop-lin-agent'
+  echo "dataloop agent stopped"
 }
 
 case "$1" in
