@@ -1,5 +1,15 @@
 #!/bin/sh
 
+### BEGIN INIT INFO
+# Provides:          dataloop-agent
+# Required-Start:    $local_fs $network
+# Required-Stop:     $local_fs
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: dataloop-agent
+# Description:       dataloop monitoring agent
+### END INIT INFO
+
 start () {
   echo "dataloop agent started"
   /usr/local/bin/dataloop-lin-agent \
