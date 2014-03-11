@@ -17,9 +17,35 @@
 # limitations under the License.
 #
 
-remote_file node['dataloop']['agent']['location'] do
+remote_file node['dataloop']['agent']['bin_dir'] do
   source node['dataloop']['agent']['uri']
   checksum node['dataloop']['agent']['checksum']
+  mode 0755
+end
+
+directory node['dataloop']['agent']['run_dir'] do
+  action :create 
+  owner node['dataloop']['node']['user']
+  group "root"
+  mode 0755
+  recursive true
+end
+
+execute "user owns run dir" do
+  command "chown -R node['dataloop']['node']['user'] node['dataloop']['agent']['run_dir']"
+end
+
+directory node['dataloop']['agent']['log_dir'] do
+  action :create 
+  owner node['dataloop']['node']['user']
+  group "root"
+  mode 0755
+end
+
+directory node['dataloop']['agent']['conf_dir'] do
+  action :create 
+  owner node['dataloop']['node']['user']
+  group "root"
   mode 0755
 end
 
@@ -27,8 +53,6 @@ template node['dataloop']['agent']['init'] do
   owner "root"
   group "root"
   mode 0755
-  variables( :api_key => node['dataloop']['agent']['apikey'],
-             :tags => node['dataloop']['node']['tags'] )
 end
 
 service "dataloop-agent" do
