@@ -5,13 +5,10 @@ Installs the dataloop.io agent on a host
 Requirements
 ------------
 
-None
+Encrypted Data Bag called dataloop/keys to store the API key securely.
 
 Attributes
 ----------
-TODO: List you cookbook attributes here.
-
-e.g.
 #### dataloop::default
 <table>
   <tr>
@@ -32,7 +29,17 @@ Usage
 -----
 #### dataloop::default
 
-Just include `dataloop` in your node's `run_list`:
+Create an encrypted data bag named dataloop/keys with the following content and place
+the secret key in /etc/chef/edbkeys/dataloop.key on each node that you
+want to use this cookbook with.
+
+```json
+{
+      "id": "keys",
+      "api": "YOUR API KEY"
+}
+```
+Now include `dataloop` in your node's `run_list`:
 
 ```json
 {
