@@ -1,0 +1,32 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_solo
+
+platforms:
+  - name: ubuntu-12.04
+  - name: centos-6.5
+
+# - name: ubuntu-12.04
+#   driver_config:
+#     box: opscode-ubuntu-12.04
+#     box_url: https://opscode-vm.s3.amazonaws.com/vagrant/opscode_ubuntu-12.04_chef-11.4.4.box
+#   run_list:
+#     - recipe[apt]
+# - name: centos-6.5
+#   driver:
+#     box: opscode-centos-6.5
+#     box_url: https://opscode-vm.s3.amazonaws.com/vagrant/opscode_centos-6.5_chef-11.4.4.box
+#   run_list:
+#     - recipe[yum]
+
+suites:
+  - name: default
+    run_list:
+      - recipe[dataloop::default]
+    attributes:
+        dataloop:
+            agent:
+              api_key: 

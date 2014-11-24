@@ -1,11 +1,13 @@
-default['dataloop']['agent']['bin_dir'] = "/usr/local/bin/dataloop-lin-agent"
-default['dataloop']['agent']['uri'] = "http://download.dataloop.io/linux/latest/dataloop-lin-agent.x64"
-default['dataloop']['agent']['checksum'] = "3438645f87d2d3fa216bbb385f9c4a9704976e9a88ebf286089588db1e7f4054"
+default['dataloop']['agent']['install_method'] = 'package' # package or bash
+default['dataloop']['agent']['version'] = nil
+
 default['dataloop']['agent']['init'] = "/etc/init.d/dataloop-agent"
 default['dataloop']['agent']['run_dir'] = "/opt/dataloop/plugins/rpc"
 default['dataloop']['agent']['log_dir'] = "/var/log/dataloop"
 default['dataloop']['agent']['conf_dir'] = "/etc/dataloop"
-default['dataloop']['agent']['api_key'] = ""
+default['dataloop']['agent']['conf_file'] = "agent.conf"
+default['dataloop']['agent']['api_key'] = nil
+
 default['dataloop']['node']['tags'] = "all"
 default['dataloop']['node']['user'] = "dataloop"
 default['dataloop']['node']['secret_key_file'] = "/etc/chef/edbkeys/dataloop.key"

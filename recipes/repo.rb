@@ -17,20 +17,20 @@
 # limitations under the License.
 #
 
-include_recipe "dataloop::#{node['dataloop']['agent']['install_method']}"
+case node['platform_family']
+when 'rhel', 'fedora'
 
-template node['dataloop']['agent']['conf_file'] do
-  path "#{node['dataloop']['agent']['conf_dir']}/#{node['dataloop']['agent']['conf_file']}"
-  source "agent.conf.erb"
-  owner "dataloop"
-  group "dataloop"
-  mode 0600
-  notifies :restart, "service[dataloop-agent]", :delayed
-end
+  yum_repository 'dataloop' do
+    description 'Dataloop Repository'
+    baseurl      node['dataloop']['package_repository']
+    action :create
+  end
 
-unless node['dataloop']['agent']['api_key'].nil?
-  service "dataloop-agent" do
-    supports :status => true, :restart => true, :reload => false
-    action [ :enable, :start ]
+when 'debian'
+  include_recipe 'apt::default'
+
+  apt_repository 'dataloop' do
+    uri          node['dataloop']['package_repository']
+    distribution node['lsb']['codename'] + '/'
   end
 end

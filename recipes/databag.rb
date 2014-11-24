@@ -17,20 +17,7 @@
 # limitations under the License.
 #
 
-include_recipe "dataloop::#{node['dataloop']['agent']['install_method']}"
+dataloop_secret = Chef::EncryptedDataBagItem.load_secret("#{node[:dataloop][:node][:secret_key_file]}")
+dataloop_keys = Chef::EncryptedDataBagItem.load("dataloop", "keys", dataloop_secret)
 
-template node['dataloop']['agent']['conf_file'] do
-  path "#{node['dataloop']['agent']['conf_dir']}/#{node['dataloop']['agent']['conf_file']}"
-  source "agent.conf.erb"
-  owner "dataloop"
-  group "dataloop"
-  mode 0600
-  notifies :restart, "service[dataloop-agent]", :delayed
-end
 
-unless node['dataloop']['agent']['api_key'].nil?
-  service "dataloop-agent" do
-    supports :status => true, :restart => true, :reload => false
-    action [ :enable, :start ]
-  end
-end
