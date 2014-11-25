@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-include_recipe 'dataloop::repo'
+include_recipe 'dataloop-chef::repo'
 
 case node['platform_family']
 when 'rhel', 'fedora'
