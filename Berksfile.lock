@@ -7,7 +7,7 @@ DEPENDENCIES
 
 GRAPH
   apt (2.6.0)
-  dataloop (0.1.5)
-    apt (~> 2.2)
+  dataloop (0.1.6)
+    apt (~> 2.6.0)
     yum (~> 3.4.1)
   yum (3.4.1)
