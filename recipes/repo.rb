@@ -31,6 +31,6 @@ when 'debian'
 
   apt_repository 'dataloop' do
     uri          node['dataloop']['package_repository']
-    distribution node['lsb']['codename'] + '/'
+    distribution node['kernel']['machine'] + '/'
   end
 end
