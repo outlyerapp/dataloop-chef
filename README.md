@@ -1,10 +1,11 @@
-Dataloop Cookbook
+Dataloop-agent Cookbook
 =================
-Installs the dataloop.io agent on a host
+This cookbook installs the dataloop.io agent on a host.
 
 Requirements
 ------------
-Chef 11 or higher
+* Chef 11 or higher
+* see metadata.rb for cookbook dependencies
 
 Platforms
 ---------
@@ -23,6 +24,15 @@ Attributes
 
 Usage
 -----
+Import this cookbook into your environment:
+
+* Berkshelf:
+  * cookbook "dataloop-agent", git: "https://github.com/dataloop/dataloop-chef", tag: "v0.1.7"
+  
+* Librarian:
+  * cookbook 'dataloop-agent', :git => 'https://github.com/dataloop/dataloop-chef', :ref => 'v0.1.7
+
+
 Include the default recipe in your nodes run list and set at least your api key
 
 ```
@@ -39,6 +49,16 @@ Include the default recipe in your nodes run list and set at least your api key
   ]
 }
 ```
+
+Testing
+-------
+You can use test-kitchen 
+Testing for this cookbook has been setup with Librarian-chef and Test-Kitchen utilising vagrant as the machine provider
+
+* Clone the repository
+* copy .kitchen.yml to a local version .kitchen.local.yml (this is not checked into git)
+* edit the api_key attribute in .kitchen.local.yml with your value
+* run `kitchen test` or `kitchen test <machine name>`
 
 Contributing
 ------------
