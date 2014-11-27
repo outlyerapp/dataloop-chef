@@ -28,9 +28,7 @@ template node['dataloop']['agent']['conf_file'] do
   notifies :restart, "service[dataloop-agent]", :delayed
 end
 
-unless node['dataloop']['agent']['api_key'].nil?
-  service "dataloop-agent" do
-    supports :status => true, :restart => true, :reload => false
-    action [ :enable, :start ]
-  end
+service "dataloop-agent" do
+  supports :status => true, :restart => true, :reload => false
+  action [ :enable, :start ]
 end
