@@ -29,8 +29,8 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[dataloop::default]
+      - recipe[dataloop-agent::default]
     attributes:
         dataloop:
             agent:
-              api_key: 
+              api_key: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
