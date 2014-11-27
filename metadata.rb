@@ -1,4 +1,4 @@
-name             "dataloop"
+name             "dataloop-agent"
 maintainer       'Dataloop Software Limited'
 maintainer_email 'support@dataloop.io'
 license          'All rights reserved'

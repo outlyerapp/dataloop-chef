@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-include_recipe "dataloop-chef::#{node['dataloop']['agent']['install_method']}"
+include_recipe "dataloop-agent::#{node['dataloop']['agent']['install_method']}"
 
 template node['dataloop']['agent']['conf_file'] do
   path "#{node['dataloop']['agent']['conf_dir']}/#{node['dataloop']['agent']['conf_file']}"

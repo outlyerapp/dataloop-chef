@@ -1,13 +1,13 @@
 DEPENDENCIES
   apt (~> 2.6.0)
-  dataloop
+  dataloop-chef
     path: .
     metadata: true
   yum (~> 3.4.1)
 
 GRAPH
   apt (2.6.0)
-  dataloop (0.1.6)
+  dataloop-chef (0.1.7)
     apt (~> 2.6.0)
     yum (~> 3.4.1)
   yum (3.4.1)
