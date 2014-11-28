@@ -27,10 +27,10 @@ Usage
 Import this cookbook into your environment:
 
 * Berkshelf:
-  * cookbook "dataloop-agent", git: "https://github.com/dataloop/dataloop-chef", tag: "v0.1.7"
+  * cookbook "dataloop-agent", git: "https://github.com/dataloop/dataloop-chef", tag: "v0.1.8"
   
 * Librarian:
-  * cookbook 'dataloop-agent', :git => 'https://github.com/dataloop/dataloop-chef', :ref => 'v0.1.7
+  * cookbook 'dataloop-agent', :git => 'https://github.com/dataloop/dataloop-chef', :ref => 'v0.1.8
 
 
 Include the default recipe in your nodes run list and set at least your api key
