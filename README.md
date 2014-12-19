@@ -16,11 +16,13 @@ Optional
 ------------
 Encrypted Data Bag called dataloop/keys to store the API key securely.
 
+dataloop::tags recipe will tag your agent in dataloop
+
 Attributes
 ----------
 * node['dataloop']['agent']['install_method'] : Methods of install are _package_ or _bash_. Currently the bash method does not work but it intended to satisfy non-deb or non-rpm environments. 
 * node['dataloop']['agent']['version'] : Choose the version of agent to install. Set to _nil_ for the latest.
-* node['dataloop']['agent']['api_key'] : __REQUIREd__ you must set this to the api_key for you account. Your servers will need it to communicate with dataloop.io. It is stored on you servers in a protected file.
+* node['dataloop']['agent']['api_key'] : __REQUIRED__ you must set this to the api_key for you account. Your servers will need it to communicate with dataloop.io. It is stored on you servers in a protected file.
 
 Usage
 -----
@@ -49,6 +51,9 @@ Include the default recipe in your nodes run list and set at least your api key
   ]
 }
 ```
+
+Optionally set `node['dataloop']['agent']['tags']` to an array of tags for your agent and include the `dataloop::tags` recipe in your run list. This will then tag your agent with some useful tags.  
+You can extend this recipe, ideally in a wrapper, to add some other tags for your agent.
 
 Testing
 -------
