@@ -23,7 +23,7 @@ case node['platform_family']
 when 'rhel', 'fedora'
   package_install_opts = '--nogpgcheck'
 when 'debian'
-  package_install_opts = '--force-yes'
+  package_install_opts = ''
 end
 
 package "dataloop-agent" do

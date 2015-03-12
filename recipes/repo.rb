@@ -32,5 +32,8 @@ when 'debian'
   apt_repository 'dataloop' do
     uri          node['dataloop']['package_repository']
     distribution node['kernel']['machine'] + '/'
+    key          node['dataloop']['package_gpg_key']
+    distribution 'stable'
+    components   ['main']
   end
 end
