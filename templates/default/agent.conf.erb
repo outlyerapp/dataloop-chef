@@ -1,7 +1,7 @@
 # Dataloop-agent Upstart and SysVinit configuration file
 
 # Server endpoint to send data
-SERVER=https://www.dataloop.io
+SERVER=<%= node['dataloop']['agent']['server'] %>
 
 # Your account API key
 API_KEY=<%= node['dataloop']['agent']['api_key'] %>
