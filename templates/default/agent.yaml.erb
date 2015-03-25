@@ -1,9 +1,9 @@
 ---
 ## Set to yes to disable RPC and run plugins from local plugin source
-solo_mode: no
+solo_mode: <%= node['dataloop']['agent']['solo_mode'] %>
 
 ## Set to yes to create lots of logs
-debug: no
+debug: <%= node['dataloop']['agent']['debug'] %>
 
 ## The dataloop api key
 api-key: <%= node['dataloop']['agent']['api_key'] %>
