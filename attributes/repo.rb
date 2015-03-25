@@ -4,5 +4,5 @@ when 'rhel', 'fedora'
 when 'debian'
   default['dataloop']['package_repository'] = "https://download.dataloop.io/deb"
   default['dataloop']['package_gpg_key'] = 'https://download.dataloop.io/pubkey.gpg'
+  default['dataloop']['package_distribution'] = 'stable'
 end
-
