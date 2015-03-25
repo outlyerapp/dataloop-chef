@@ -21,7 +21,7 @@ end
 default['dataloop']['agent']['api_key'] = nil
 default['dataloop']['agent']['server'] = "https://www.dataloop.io"
 
-default['dataloop']['node']['tags'] = "all"
-default['dataloop']['node']['user'] = "dataloop"
-default['dataloop']['node']['secret_key_file'] = "/etc/chef/edbkeys/dataloop.key"
+# array of tags to apply to node
+default['dataloop']['agent']['tags'] = nil
+default['dataloop']['agent']['name'] = nil
 
