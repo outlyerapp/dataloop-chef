@@ -7,6 +7,7 @@ default['dataloop']['agent']['log_dir'] = "/var/log/dataloop"
 default['dataloop']['agent']['conf_dir'] = "/etc/dataloop"
 default['dataloop']['agent']['conf_file'] = "agent.yaml"
 default['dataloop']['agent']['init_vars_file'] = 'dataloop-agent'
+default['dataloop']['agent']['deregister_onstop'] = 'yes' # or no
 
 case node['platform_family']
 when 'rhel', 'fedora'
