@@ -33,7 +33,7 @@ when 'debian'
     uri          node['dataloop']['package_repository']
     distribution node['kernel']['machine'] + '/'
     key          node['dataloop']['package_gpg_key']
-    distribution 'stable'
+    distribution node['dataloop']['package_distribution']
     components   ['main']
   end
 end

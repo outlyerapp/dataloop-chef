@@ -20,7 +20,13 @@ Attributes
 ----------
 * node['dataloop']['agent']['install_method'] : Methods of install are _package_ or _bash_. Currently the bash method does not work but it intended to satisfy non-deb or non-rpm environments. 
 * node['dataloop']['agent']['version'] : Choose the version of agent to install. Set to _nil_ for the latest.
-* node['dataloop']['agent']['api_key'] : __REQUIREd__ you must set this to the api_key for you account. Your servers will need it to communicate with dataloop.io. It is stored on you servers in a protected file.
+* node['dataloop']['agent']['api_key'] : __REQUIRED__ you must set this to the api_key for you account. Your servers will need it to communicate with dataloop.io. It is stored on you servers in a protected file.
+* node['dataloop']['agent']['deregister_onstop'] : Choose whether to deregister the agent when stopping the service
+* node['dataloop']['agent']['solo_mode'] : Whether you run in solo mode with RPC turned off
+* node['dataloop']['agent']['debug'] : Debugging flag
+* node['dataloop']['agent']['tags'] : An array of tags to associate to this agent
+* node['dataloop']['agent']['name'] : A custom name for this agent, default will be hostname if not set
+
 
 Usage
 -----
@@ -49,6 +55,11 @@ Include the default recipe in your nodes run list and set at least your api key
   ]
 }
 ```
+
+Tags
+----
+Use `node['dataloop']['agent']['tags']` to setup automatic tags so you don't need to set them in the web UI
+
 
 Testing
 -------

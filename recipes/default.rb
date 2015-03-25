@@ -19,9 +19,18 @@
 
 include_recipe "dataloop-agent::#{node['dataloop']['agent']['install_method']}"
 
+template node['dataloop']['agent']['init_vars_file'] do
+  path "#{node['dataloop']['agent']['init_vars_dir']}/#{node['dataloop']['agent']['init_vars_file']}"
+  source "agent.yaml.erb"
+  owner "root"
+  group "root"
+  mode 0640
+  notifies :restart, "service[dataloop-agent]", :delayed
+end
+
 template node['dataloop']['agent']['conf_file'] do
   path "#{node['dataloop']['agent']['conf_dir']}/#{node['dataloop']['agent']['conf_file']}"
-  source "agent.conf.erb"
+  source "agent.yaml.erb"
   owner "dataloop"
   group "dataloop"
   mode 0600
@@ -32,3 +41,4 @@ service "dataloop-agent" do
   supports :status => true, :restart => true, :reload => false
   action [ :enable, :start ]
 end
+
