@@ -21,7 +21,7 @@ include_recipe "dataloop-agent::#{node['dataloop']['agent']['install_method']}"
 
 template node['dataloop']['agent']['init_vars_file'] do
   path "#{node['dataloop']['agent']['init_vars_dir']}/#{node['dataloop']['agent']['init_vars_file']}"
-  source "agent.yaml.erb"
+  source "agent.conf.erb"
   owner "root"
   group "root"
   mode 0640
