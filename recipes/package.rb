@@ -21,7 +21,7 @@ include_recipe 'dataloop-agent::repo'
 
 case node['platform_family']
 when 'rhel', 'fedora'
-  package_install_opts = '--nogpgcheck'
+  package_install_opts = ''
 when 'debian'
   package_install_opts = ''
 end
@@ -29,5 +29,5 @@ end
 package "dataloop-agent" do
   version node['dataloop']['agent']['version']
   options package_install_opts
-  action :install
+  action :upgrade
 end

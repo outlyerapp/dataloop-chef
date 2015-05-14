@@ -23,7 +23,8 @@ when 'rhel', 'fedora'
   yum_repository 'dataloop' do
     description 'Dataloop Repository'
     baseurl      node['dataloop']['package_repository']
-    action :create
+    gpgkey       node['dataloop']['package_gpg_key']
+    action       :create
   end
 
 when 'debian'
