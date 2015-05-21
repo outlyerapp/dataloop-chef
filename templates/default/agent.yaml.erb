@@ -8,8 +8,10 @@ debug: <%= node['dataloop']['agent']['debug'] %>
 ## The dataloop api key
 api-key: <%= node['dataloop']['agent']['api_key'] %>
 
+<%- unless node['dataloop']['agent']['server'].nil? %>
 ### The dataloop server endpoint
 server: <%= node['dataloop']['agent']['server'] %>
+<%- end %>
 
 ##  set tags to a comma separated list of tags applied to this agent
 <%- if node['dataloop']['agent']['tags'].nil? %>

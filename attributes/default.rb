@@ -19,7 +19,7 @@ when 'debian'
 end
 
 default['dataloop']['agent']['api_key'] = nil
-default['dataloop']['agent']['server'] = "https://www.dataloop.io"
+default['dataloop']['agent']['server'] = nil
 
 # array of tags to apply to node
 default['dataloop']['agent']['tags'] = nil
