@@ -7,7 +7,7 @@ DEPENDENCIES
 
 GRAPH
   apt (2.6.0)
-  dataloop-agent (1.0.0)
+  dataloop-agent (1.0.1)
     apt (~> 2.6.0)
     yum (~> 3.4.1)
   yum (3.4.1)
