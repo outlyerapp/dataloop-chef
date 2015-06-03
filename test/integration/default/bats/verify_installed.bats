@@ -4,6 +4,6 @@
 }
 
 @test 'agent.conf contains an api key' {
-  grep ^API_KEY /etc/dataloop/agent.conf
+  grep ^api-key: /etc/dataloop/agent.yaml
 }
 
