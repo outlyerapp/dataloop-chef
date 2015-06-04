@@ -31,9 +31,9 @@ end
 template node['dataloop']['agent']['conf_file'] do
   path "#{node['dataloop']['agent']['conf_dir']}/#{node['dataloop']['agent']['conf_file']}"
   source "agent.yaml.erb"
-  owner "dataloop"
+  owner "root   "
   group "dataloop"
-  mode 0600
+  mode 0640
   notifies :restart, "service[dataloop-agent]", :delayed
 end
 
