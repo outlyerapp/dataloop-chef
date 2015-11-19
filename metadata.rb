@@ -6,5 +6,5 @@ description      'Installs/Configures dataloop'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '1.0.2'
 
-depends 'apt',      '~> 2.6.0'
-depends 'yum',     '~> 3.4.1'
+depends 'apt',      '~> 2.9.2'
+depends 'yum',     '~> 3.8.2'

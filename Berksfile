@@ -1,5 +1,5 @@
 source "https://api.berkshelf.com"
 
 metadata
-cookbook 'apt', '~> 2.6.0'
-cookbook 'yum', '~> 3.4.1'
+cookbook 'apt', '~> 2.9.2'
+cookbook 'yum', '~> 3.8.2'
