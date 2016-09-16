@@ -9,7 +9,6 @@ windows_package 'dataloop-agent' do
 end
 
 template node['dataloop']['agent']['conf_file'] do
-  # path "#{node['dataloop']['agent']['conf_dir']}/#{node['dataloop']['agent']['conf_file']}"
   path 'c:\dataloop\agent.yaml'
   source "agent.yaml.erb"
   notifies :restart, "windows_service[dataloop-agent]", :delayed
