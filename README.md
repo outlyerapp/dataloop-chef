@@ -5,12 +5,14 @@ This cookbook installs the dataloop.io agent on a host.
 Requirements
 ------------
 * Chef 11 or higher
+* Chef 12.14 or higher on Microsoft Windows platforms
 * see metadata.rb for cookbook dependencies
 
 Platforms
 ---------
 * Ubuntu 10.04, 12.04, 140.4
 * Rhel/Centos >= 6
+* Microsoft Windows
 
 Optional
 ------------
@@ -55,6 +57,11 @@ Include the default recipe in your nodes run list and set at least your api key
   ]
 }
 ```
+
+Microsoft Windows
+-----------------
+Include the windows recipe only in your run list
+
 
 Tags
 ----
