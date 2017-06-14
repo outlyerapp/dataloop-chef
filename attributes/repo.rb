@@ -1,4 +1,5 @@
 default['dataloop']['package_gpg_key'] = 'https://download.dataloop.io/pubkey.gpg'
+default['dataloop']['package_gpg_id'] = '113E2B8D'
 default['dataloop']['package_distribution'] = 'stable'
 case node['platform_family']
 when 'rhel', 'fedora'

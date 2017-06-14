@@ -30,10 +30,17 @@ when 'rhel', 'fedora'
 when 'debian'
   include_recipe 'apt::default'
 
+  # remove any expired apt-key
+  execute "remove expired key" do
+    command "apt-key del #{node['dataloop']['package_gpg_id']}"
+    only_if "apt-key list | grep #{node['dataloop']['package_gpg_id']} | grep expired"
+  end
+    
   apt_repository 'dataloop' do
     uri          node['dataloop']['package_repository']
     distribution node['kernel']['machine'] + '/'
-    key          node['dataloop']['package_gpg_key']
+    key          node['dataloop']['package_gpg_id']
+    keyserver   'keyserver.ubuntu.com'
     distribution node['dataloop']['package_distribution']
     components   ['main']
   end
