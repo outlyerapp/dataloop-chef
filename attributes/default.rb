@@ -2,6 +2,7 @@ default['dataloop']['agent']['install_method'] = 'package' # package or bash
 default['dataloop']['agent']['version'] = nil
 default['dataloop']['agent']['solo_mode'] = 'no'
 default['dataloop']['agent']['debug'] = 'no'
+default['dataloop']['agent']['docker'] = 'no'
 
 default['dataloop']['agent']['init'] = "/etc/init.d/dataloop-agent"
 default['dataloop']['agent']['run_dir'] = "/opt/dataloop/plugins/rpc"

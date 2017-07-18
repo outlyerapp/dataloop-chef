@@ -5,6 +5,9 @@ solo: <%= node['dataloop']['agent']['solo_mode'] %>
 ## Set to yes to create lots of logs
 debug: <%= node['dataloop']['agent']['debug'] %>
 
+## set to yes to monitor Docker containers on this host
+docker: <%= node['dataloop']['agent']['docker'] %>
+
 ## The dataloop api key
 api-key: <%= node['dataloop']['agent']['api_key'] %>
 

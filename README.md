@@ -28,6 +28,7 @@ Attributes
 * node['dataloop']['agent']['debug'] : Debugging flag
 * node['dataloop']['agent']['tags'] : An array of tags to associate to this agent
 * node['dataloop']['agent']['name'] : A custom name for this agent, default will be hostname if not set
+* node['dataloop']['agent']['docker'] : Choose whether to discover and collect metrics for Docker containers
 
 
 Usage
