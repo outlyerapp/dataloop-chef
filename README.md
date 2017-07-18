@@ -69,6 +69,11 @@ Tags
 Use `node['dataloop']['agent']['tags']` to setup automatic tags so you don't need to set them in the web UI
 
 
+STATSD
+------
+The agent ships with a statsd server. Include the `statsd` recipe to install. All the statsd attributes are in the `statsd.rb` attributes file.
+
+
 Testing
 -------
 You can use test-kitchen 

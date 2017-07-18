@@ -9,6 +9,7 @@ default['dataloop']['agent']['run_dir'] = "/opt/dataloop/plugins/rpc"
 default['dataloop']['agent']['log_dir'] = "/var/log/dataloop"
 default['dataloop']['agent']['conf_dir'] = "/etc/dataloop"
 default['dataloop']['agent']['conf_file'] = "agent.yaml"
+default['dataloop']['agent']['statsd_file'] = "statsd.yaml"
 default['dataloop']['agent']['init_vars_file'] = 'dataloop-agent'
 default['dataloop']['agent']['deregister_onstop'] = 'yes' # or no
 
@@ -25,4 +26,3 @@ default['dataloop']['agent']['server'] = "wss://agent.dataloop.io"
 # array of tags to apply to node
 default['dataloop']['agent']['tags'] = nil
 default['dataloop']['agent']['name'] = nil
-
