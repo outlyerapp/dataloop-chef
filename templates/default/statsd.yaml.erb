@@ -1,0 +1,31 @@
+---
+version: 1
+
+listener:
+  address: <%= node['dataloop']['agent']['statsd']['listener']['address'] %>
+  port: <%= node['dataloop']['agent']['statsd']['listener']['port'] %>
+
+behavior:
+  flushInterval: <%= node['dataloop']['agent']['statsd']['behavior']['flushInterval'] %>
+  ingesterQueueSize: <%= node['dataloop']['agent']['statsd']['behavior']['ingesterQueueSize'] %>
+  deleteIdleStats: <%= node['dataloop']['agent']['statsd']['behavior']['deleteIdleStats'] %>
+  deleteGauges: <%= node['dataloop']['agent']['statsd']['behavior']['deleteGauges'] %>
+  deleteTimers: <%= node['dataloop']['agent']['statsd']['behavior']['deleteTimers'] %>
+  deleteSets: <%= node['dataloop']['agent']['statsd']['behavior']['deleteSets'] %>
+  deleteCounters: <%= node['dataloop']['agent']['statsd']['behavior']['deleteCounters'] %>
+  keyNameSanitize: <%= node['dataloop']['agent']['statsd']['behavior']['keyNameSanitize'] %>
+
+graphite:
+  globalPrefix: <%= node['dataloop']['agent']['statsd']['graphite']['globalPrefix'] %>
+  prefixCounter: <%= node['dataloop']['agent']['statsd']['graphite']['prefixCounter'] %>
+  prefixTimer: <%= node['dataloop']['agent']['statsd']['graphite']['prefixTimer'] %>
+  prefixGauge: <%= node['dataloop']['agent']['statsd']['graphite']['prefixGauge'] %>
+  prefixSet: <%= node['dataloop']['agent']['statsd']['graphite']['prefixSet'] %>
+
+aggregation:
+  percentThreshold: <%= node['dataloop']['agent']['statsd']['aggregation']['percentThreshold'] %>
+  histograms:
+    <%- node['dataloop']['agent']['statsd']['aggregation']['histograms'].each do |bins| %>    
+    - metric: <%= bins[0] %>
+      bins: <%= bins[1] %>
+    <%- end %>    
