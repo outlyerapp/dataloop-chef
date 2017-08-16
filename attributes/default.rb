@@ -1,4 +1,5 @@
 default['dataloop']['agent']['install_method'] = 'package' # package or bash
+default['dataloop']['agent']['keep_old_config'] = nil # or true to keep old config
 default['dataloop']['agent']['version'] = nil
 default['dataloop']['agent']['solo_mode'] = 'no'
 default['dataloop']['agent']['debug'] = 'no'

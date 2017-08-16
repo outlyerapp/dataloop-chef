@@ -24,6 +24,9 @@ when 'rhel', 'fedora'
   package_install_opts = ''
 when 'debian'
   package_install_opts = ''
+  if node['dataloop']['agent']['keep_old_config'] then
+    package_install_opts = '-o Dpkg::Options::="--force-confold"'
+  end
 end
 
 package "dataloop-agent" do
